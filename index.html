@@ -7,7 +7,6 @@
     <title>Sefa CPM Market | Profesyonel Pazar Yeri</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Renk Değişkenleri - Karanlık Mod Uyumu İçin */
         :root { --bg: #f0f2f5; --card: #ffffff; --text: #1a202c; --primary: #0052cc; --border: #e2e8f0; }
         .dark-mode { --bg: #0f172a; --card: #1e293b; --text: #f8fafc; --primary: #3b82f6; --border: #334155; }
 
@@ -43,7 +42,6 @@
             margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
             font-size: 1.3rem; border: 1px solid var(--border);
         }
-        .cat-item span { font-size: 0.7rem; font-weight: 700; color: var(--text); opacity: 0.8; }
 
         .listing { padding: 15px; }
         .card {
@@ -71,17 +69,13 @@
             text-decoration: none; font-size: 0.8rem; font-weight: 700;
         }
 
-        /* SSS Alanı */
         .faq { padding: 20px; background: var(--card); margin: 15px; border-radius: 15px; border: 1px solid var(--border); }
         details { padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
         summary { font-weight: 700; cursor: pointer; color: var(--primary); }
 
-        .reviews { padding: 20px; background: var(--card); margin-top: 20px; border-radius: 15px 15px 0 0; }
+        .reviews { padding: 20px; background: var(--card); margin-top: 20px; }
         .review-card { background: var(--bg); padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--primary); }
 
-        .alert-box { background: #fff5f5; color: #c53030; padding: 10px; text-align: center; font-size: 0.8rem; font-weight: 800; border-radius: 8px; margin: 10px; border: 1px solid #feb2b2; }
-
-        /* Canlı Bildirim */
         #notification {
             position: fixed; bottom: 90px; left: 15px; background: var(--card);
             padding: 10px 15px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
@@ -92,7 +86,6 @@
         .floating-contact { position: fixed; bottom: 20px; right: 20px; z-index: 1001; }
         .float-btn { width: 55px; height: 55px; border-radius: 28px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        
         .theme-btn { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 8px; border-radius: 10px; cursor: pointer; }
     </style>
 </head>
@@ -108,7 +101,6 @@
 
 <div class="stats-bar">
     <span><i class="fas fa-check-circle"></i> 1.200+ Satış</span>
-    <span><i class="fas fa-users"></i> 850+ Müşteri</span>
     <span><i class="fas fa-star"></i> 4.9 Puan</span>
 </div>
 
@@ -121,27 +113,58 @@
     <div class="cat-item" onclick="filter('all')"><div class="cat-icon" style="color:#0052cc;"><i class="fas fa-border-all"></i></div><span>Tümü</span></div>
     <div class="cat-item" onclick="filter('hesaplar')"><div class="cat-icon" style="color:#e6683c;"><i class="fas fa-user-circle"></i></div><span>Hesaplar</span></div>
     <div class="cat-item" onclick="filter('premium')"><div class="cat-icon" style="color:#38a169;"><i class="fas fa-car"></i></div><span>Premium</span></div>
-    <div class="cat-item" onclick="filter('kromlar')"><div class="cat-icon" style="color:#805ad5;"><i class="fas fa-magic"></i></div><span>Kromlar</span></div>
 </nav>
 
 <div class="listing">
+    
     <div class="card cat-hesaplar">
-        <div class="badge">🔥 ÇOK SATAN</div>
+        <div class="badge">🔥 EN DOLUSU</div>
         <div class="price-tag">250 TL</div>
         <div class="card-body">
             <div class="card-img">👑</div>
             <div class="card-info">
-                <h3>UltiPro (En Dolusu)</h3>
+                <h3>UltiPro Paketi</h3>
                 <p>Tüm kromlar, tüm ücretli paketler ve sınırsız coin içeren elit hesap.</p>
             </div>
         </div>
         <div class="card-footer">
-            <span style="font-size:0.7rem; color:#e53e3e; font-weight:bold;"><i class="fas fa-clock"></i> Son 2 Stok!</span>
+            <span style="font-size:0.7rem; color:#e53e3e; font-weight:bold;">Son 2 Stok!</span>
+            <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
+        </div>
+    </div>
+
+    <div class="card cat-hesaplar">
+        <div class="price-tag">150 TL</div>
+        <div class="card-body">
+            <div class="card-img">💎</div>
+            <div class="card-info">
+                <h3>UltiPlus Paket</h3>
+                <p>Ücretli araçlar dahil, 50M para ve özel karakter kostümleri.</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span style="font-size:0.7rem; color:#38a169; font-weight:bold;">Onaylı Satıcı</span>
+            <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
+        </div>
+    </div>
+
+    <div class="card cat-hesaplar">
+        <div class="price-tag">100 TL</div>
+        <div class="card-body">
+            <div class="card-img">👤</div>
+            <div class="card-info">
+                <h3>Ulti Hesap</h3>
+                <p>Başlangıç seviyesi dolu hesap. Standart araçlar ve 20M para.</p>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span style="font-size:0.7rem; color:#38a169; font-weight:bold;">Hemen Teslim</span>
             <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
         </div>
     </div>
 
     <div class="card cat-premium">
+        <div class="badge">🏎️ ÖZEL SERİ</div>
         <div class="price-tag">230 TL</div>
         <div class="card-body">
             <div class="card-img">🏎️</div>
@@ -150,31 +173,25 @@
                 <p>W16 Motor, 1695HP ve Full Krom Tasarım.</p>
             </div>
         </div>
-        <div class="alert-box">⚠️ 1 ADET KALDI ACELE EDİN!!!</div>
         <div class="card-footer">
-            <span style="font-size:0.7rem; color:#38a169; font-weight:bold;"><i class="fas fa-check"></i> Hemen Teslim</span>
+            <span style="font-size:0.7rem; color:#e53e3e; font-weight:bold;">Stokta Son 1!</span>
             <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
         </div>
     </div>
+
 </div>
 
 <div class="faq">
     <h3>Sıkça Sorulan Sorular</h3>
-    <details>
-        <summary>Hesaplar güvenli mi?</summary>
-        <p style="padding:10px; font-size:0.75rem; opacity:0.8;">Evet, tüm hesaplarımız test edilmiş ve güvenli giriş garantilidir.</p>
-    </details>
-    <details>
-        <summary>Teslimat süresi nedir?</summary>
-        <p style="padding:10px; font-size:0.75rem; opacity:0.8;">Ödeme sonrası ortalama 5-10 dakika içinde bilgiler iletilir.</p>
-    </details>
+    <details><summary>Hesaplar güvenli mi?</summary><p style="padding:10px;">Evet, tüm hesaplarımız güvenli giriş garantilidir.</p></details>
+    <details><summary>Teslimat süresi nedir?</summary><p style="padding:10px;">Ödeme sonrası 5-10 dakika içinde bilgiler iletilir.</p></details>
 </div>
 
 <div class="reviews">
-    <h3 style="font-size:0.9rem; margin-bottom:15px; color:var(--text);">Müşteri Yorumları</h3>
+    <h3>Müşteri Yorumları</h3>
     <div class="review-card">
-        <span class="review-user">@emre_can34</span>
-        <p class="review-text">"UltiPro aldım, 5 dakikada teslim ettiler. Sefa hocam çok güvenilir."</p>
+        <span style="font-size:0.8rem; font-weight:800;">@emre_can34</span>
+        <p style="font-size:0.75rem; font-style:italic;">"UltiPro aldım, 5 dakikada teslim ettiler. Güvenilir."</p>
     </div>
 </div>
 
@@ -185,9 +202,8 @@
     </div>
 </div>
 
-<footer style="text-align:center; padding:30px; font-size:0.7rem; color:#94a3b8; border-top:1px solid var(--border); background:var(--card);">
-    <p><strong>SEFA CPM MARKET</strong></p>
-    <p>Bir SefaAi projesidir. © 2026</p>
+<footer style="text-align:center; padding:30px; font-size:0.7rem; color:#94a3b8;">
+    <p><strong>SEFA CPM MARKET © 2026</strong></p>
 </footer>
 
 <div class="floating-contact">
@@ -195,22 +211,16 @@
 </div>
 
 <script>
-    // Karanlık Mod Fonksiyonu
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
-        const icon = document.querySelector('.theme-btn i');
-        icon.classList.toggle('fa-moon');
-        icon.classList.toggle('fa-sun');
     }
 
-    // Filtreleme
     function filter(type) {
         document.querySelectorAll('.card').forEach(c => {
             c.style.display = (type === 'all' || c.classList.contains('cat-' + type)) ? 'block' : 'none';
         });
     }
 
-    // Geri Sayım Sayacı
     let timeLeft = 10800; 
     setInterval(() => {
         let h = Math.floor(timeLeft / 3600);
@@ -220,10 +230,8 @@
         if(timeLeft > 0) timeLeft--;
     }, 1000);
 
-    // Canlı Bildirim Sistemi
-    const users = ["Mert", "Ece", "Kadir", "Arda", "Selin", "Barış", "Hüseyin"];
-    const items = ["UltiPro Paket", "LaFerrari Krom", "W16 Motor", "Full Hesap"];
-
+    const users = ["Mert", "Ece", "Arda", "Selin", "Barış"];
+    const items = ["UltiPro Paket", "LaFerrari Krom", "W16 Motor"];
     function showNotification() {
         document.getElementById('user-name').innerText = users[Math.floor(Math.random() * users.length)];
         document.getElementById('user-item').innerText = items[Math.floor(Math.random() * items.length)];
@@ -231,9 +239,9 @@
         notif.style.display = 'flex';
         setTimeout(() => { notif.style.display = 'none'; }, 4000);
     }
-    setInterval(showNotification, 15000); // 15 saniyede bir bildirim çıkar
+    setInterval(showNotification, 15000);
 </script>
 
 </body>
-    </html>
-                                                          
+                </html>
+    
