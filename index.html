@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="lxTEY-Gg1mmav7LYW_9Yox_suzIsB8JP3N5wTYwEozE" />
-    
     <title>Sefa CPM Market | Profesyonel Pazar Yeri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         body { background-color: #f0f2f5; color: #1a202c; padding-bottom: 50px; }
@@ -15,112 +15,105 @@
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #0052cc; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { color: #0052cc; font-weight: 900; font-size: 1.4rem; text-decoration: none; }
+        .logo { color: #0052cc; font-weight: 900; font-size: 1.3rem; text-decoration: none; }
         
+        .stats-bar {
+            background: #eef2ff; display: flex; justify-content: space-around;
+            padding: 10px; font-size: 0.7rem; font-weight: 700; color: #4338ca;
+        }
+
         .banner {
             background: linear-gradient(135deg, #0052cc 0%, #003d99 100%);
-            color: white; padding: 20px; text-align: center; margin-bottom: 10px;
+            color: white; padding: 30px 20px; text-align: center;
         }
 
         .categories {
             display: flex; overflow-x: auto; background: #fff; padding: 15px; gap: 15px;
             border-bottom: 1px solid #edf2f7; scrollbar-width: none;
         }
-        .cat-item { text-align: center; min-width: 80px; cursor: pointer; text-decoration: none; }
+        .cat-item { text-align: center; min-width: 80px; cursor: pointer; }
         .cat-icon {
-            width: 55px; height: 55px; background: #f7fafc; border-radius: 15px;
+            width: 50px; height: 50px; background: #f7fafc; border-radius: 12px;
             margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; border: 1px solid #edf2f7;
+            font-size: 1.3rem; border: 1px solid #edf2f7; transition: 0.3s;
         }
-        .cat-item span { font-size: 0.75rem; font-weight: 700; color: #4a5568; }
+        .cat-item:active .cat-icon { transform: scale(0.9); background: #ebf4ff; }
+        .cat-item span { font-size: 0.7rem; font-weight: 700; color: #4a5568; }
 
         .listing { padding: 15px; }
         .card {
-            background: #fff; border-radius: 12px; border: 1px solid #e2e8f0;
-            margin-bottom: 15px; overflow: hidden; position: relative;
+            background: #fff; border-radius: 15px; border: 1px solid #e2e8f0;
+            margin-bottom: 20px; overflow: hidden; position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .badge {
+            position: absolute; top: 10px; left: 10px; background: #38a169;
+            color: white; padding: 3px 8px; border-radius: 5px; font-size: 0.6rem; font-weight: 800;
         }
         .price-tag {
-            position: absolute; top: 12px; right: 12px; background: #ebf4ff;
-            color: #0052cc; padding: 5px 10px; border-radius: 6px; font-weight: 800; font-size: 0.9rem;
+            position: absolute; top: 12px; right: 12px; background: #0052cc;
+            color: white; padding: 5px 12px; border-radius: 8px; font-weight: 800; font-size: 0.85rem;
         }
-        .card-body { padding: 15px; display: flex; align-items: center; }
-        .card-img { width: 65px; height: 65px; background: #f7fafc; border-radius: 10px; margin-right: 15px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
-        .card-info h3 { font-size: 0.95rem; color: #2d3748; margin-bottom: 4px; }
-        .card-info p { font-size: 0.75rem; color: #718096; line-height: 1.3; padding-right: 70px; }
+        .card-body { padding: 20px; display: flex; align-items: center; }
+        .card-img { width: 70px; height: 70px; background: #f1f5f9; border-radius: 12px; margin-right: 15px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+        .card-info h3 { font-size: 1rem; color: #1a202c; margin-bottom: 5px; }
+        .card-info p { font-size: 0.75rem; color: #64748b; line-height: 1.4; padding-right: 60px; }
 
         .card-footer {
-            background: #fafbfc; padding: 10px 15px; border-top: 1px solid #f1f5f9;
+            background: #f8fafc; padding: 12px 15px; border-top: 1px solid #f1f5f9;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .seller { font-size: 0.7rem; font-weight: 700; color: #38a169; }
         .buy-btn {
-            background: #0052cc; color: white; padding: 7px 15px; border-radius: 5px;
-            text-decoration: none; font-size: 0.8rem; font-weight: 700;
+            background: #0052cc; color: white; padding: 8px 18px; border-radius: 8px;
+            text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: 0.2s;
         }
+        .buy-btn:active { transform: scale(0.95); opacity: 0.9; }
+
+        .reviews { padding: 20px; background: white; margin-top: 20px; border-radius: 15px 15px 0 0; }
+        .review-card { background: #f8fafc; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #0052cc; }
+        .review-user { font-size: 0.8rem; font-weight: 800; margin-bottom: 5px; display: block; }
+        .review-text { font-size: 0.75rem; color: #4a5568; font-style: italic; }
 
         .alert-box { background: #fff5f5; color: #c53030; padding: 10px; text-align: center; font-size: 0.8rem; font-weight: 800; border-radius: 8px; margin: 10px; border: 1px solid #feb2b2; }
+
+        .floating-contact {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1001;
+        }
+        .float-btn { width: 55px; height: 55px; border-radius: 28px; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .float-btn:active { transform: scale(0.9); }
     </style>
 </head>
 <body>
 
 <header>
     <a href="#" class="logo">SEFA CPM MARKET</a>
-    <a href="https://instagram.com/jakobss66" style="text-decoration:none; font-size:0.8rem; color:#0052cc; font-weight:bold;">İletişim</a>
+    <a href="https://instagram.com/jakobss66" style="text-decoration:none; font-size:1.2rem; color:#0052cc;"><i class="fas fa-comment-dots"></i></a>
 </header>
 
+<div class="stats-bar">
+    <span><i class="fas fa-check-circle"></i> 1.200+ Satış</span>
+    <span><i class="fas fa-users"></i> 850+ Müşteri</span>
+    <span><i class="fas fa-star"></i> 4.9 Puan</span>
+</div>
+
 <div class="banner">
-    <h3>Aradığın Tüm Paketler Burada!</h3>
-    <p style="font-size:0.7rem; opacity:0.8;">Güvenli teslimat ve en uygun fiyat garantisi.</p>
+    <h2 style="font-size: 1.4rem;">En Güvenilir CPM Pazarı</h2>
+    <p style="font-size:0.8rem; margin-top:10px; opacity:0.9;">Güvenli teslimat ve en uygun fiyat garantisi.</p>
 </div>
 
 <nav class="categories">
-    <div class="cat-item" onclick="filter('all')"><div class="cat-icon">📱</div><span>Tümü</span></div>
-    <div class="cat-item" onclick="filter('hesaplar')"><div class="cat-icon">👤</div><span>Hesaplar</span></div>
-    <div class="cat-item" onclick="filter('premium')"><div class="cat-icon">🏎️</div><span>Premium</span></div>
-    <div class="cat-item" onclick="filter('kromlar')"><div class="cat-icon">✨</div><span>Kromlar</span></div>
-    <div class="cat-item" onclick="alert('jakobss66 size bu adımda yardımcı olsun')"><div class="cat-icon">⭐</div><span>VIP</span></div>
+    <div class="cat-item" onclick="filter('all')"><div class="cat-icon" style="color:#0052cc;"><i class="fas fa-border-all"></i></div><span>Tümü</span></div>
+    <div class="cat-item" onclick="filter('hesaplar')"><div class="cat-icon" style="color:#e6683c;"><i class="fas fa-user-circle"></i></div><span>Hesaplar</span></div>
+    <div class="cat-item" onclick="filter('premium')"><div class="cat-icon" style="color:#38a169;"><i class="fas fa-car"></i></div><span>Premium</span></div>
+    <div class="cat-item" onclick="filter('kromlar')"><div class="cat-icon" style="color:#805ad5;"><i class="fas fa-magic"></i></div><span>Kromlar</span></div>
 </nav>
 
 <div class="listing">
     
     <div class="card cat-hesaplar">
-        <div class="price-tag">50-100 TL</div>
-        <div class="card-body">
-            <div class="card-img">👤</div>
-            <div class="card-info">
-                <h3>Ulti Hesap Paketi</h3>
-                <p>Başlangıç seviyesi dolu hesap. Standart araçlar ve 20M para.</p>
-            </div>
-        </div>
-        <div class="card-footer"><span class="seller">Onaylı Satıcı</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
-    </div>
-
-    <div class="card cat-hesaplar">
-        <div class="price-tag">100-150 TL</div>
-        <div class="card-body">
-            <div class="card-img">💎</div>
-            <div class="card-info">
-                <h3>UltiPlus Paket</h3>
-                <p>Ücretli araçlar dahil, 50M para ve özel karakter kostümleri.</p>
-            </div>
-        </div>
-        <div class="card-footer"><span class="seller">Onaylı Satıcı</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
-    </div>
-
-    <div class="card cat-hesaplar">
-        <div class="price-tag">150-200 TL</div>
-        <div class="card-body">
-            <div class="card-img">🔥</div>
-            <div class="card-info">
-                <h3>Pro Hesap</h3>
-                <p>Full modifiyeli araçlar, W16 motorlar ve yüksek kupa değeri.</p>
-            </div>
-        </div>
-        <div class="card-footer"><span class="seller">Onaylı Satıcı</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
-    </div>
-
-    <div class="card cat-hesaplar">
-        <div class="price-tag">200-300 TL</div>
+        <div class="badge">🔥 ÇOK SATAN</div>
+        <div class="price-tag">250 TL</div>
         <div class="card-body">
             <div class="card-img">👑</div>
             <div class="card-info">
@@ -128,7 +121,22 @@
                 <p>Tüm kromlar, tüm ücretli paketler ve sınırsız coin içeren elit hesap.</p>
             </div>
         </div>
-        <div class="card-footer"><span class="seller">Onaylı Satıcı</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
+        <div class="card-footer">
+            <span style="font-size:0.7rem; color:#e53e3e; font-weight:bold;"><i class="fas fa-clock"></i> Son 2 Stok!</span>
+            <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
+        </div>
+    </div>
+
+    <div class="card cat-hesaplar">
+        <div class="price-tag">150-200 TL</div>
+        <div class="card-body">
+            <div class="card-img">🔥</div>
+            <div class="card-info">
+                <h3>Pro Hesap Paketi</h3>
+                <p>Full modifiyeli araçlar, W16 motorlar ve yüksek kupa değeri.</p>
+            </div>
+        </div>
+        <div class="card-footer"><span style="font-size:0.7rem; color:#38a169; font-weight:700;"><i class="fas fa-check"></i> Onaylı</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
     </div>
 
     <div class="card cat-premium">
@@ -141,36 +149,56 @@
             </div>
         </div>
         <div class="alert-box">⚠️ 1 ADET KALDI ACELE EDİN!!!</div>
-        <div class="card-footer"><span class="seller">Stokta Var</span><a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a></div>
+        <div class="card-footer">
+            <span style="font-size:0.7rem; color:#38a169; font-weight:bold;"><i class="fas fa-check"></i> Hemen Teslim</span>
+            <a href="https://instagram.com/jakobss66" class="buy-btn">Satın Al</a>
+        </div>
     </div>
 
     <div class="card cat-kromlar" style="opacity:0.7;">
         <div class="card-body" style="justify-content:center; padding:30px;">
             <div style="text-align:center;">
-                <div style="font-size:1.5rem;">✨</div>
-                <div style="font-weight:bold;">Krom araçlar daha eklenmedi.</div>
+                <div style="font-size:1.5rem;"><i class="fas fa-info-circle"></i></div>
+                <div style="font-weight:bold; font-size:0.8rem; margin-top:5px;">Krom araçlar yakında eklenecek.</div>
             </div>
         </div>
     </div>
 
 </div>
 
-<footer style="text-align:center; padding:20px; font-size:0.7rem; color:#a0aec0;">
-    SEFA CPM MARKET bir SefaAi projesidir. © 2026
+<div class="reviews">
+    <h3 style="font-size:0.9rem; margin-bottom:15px; color:#1a202c;">Müşteri Yorumları</h3>
+    <div class="review-card">
+        <span class="review-user">@emre_can34</span>
+        <p class="review-text">"UltiPro aldım, 5 dakikada teslim ettiler. Sefa hocam çok güvenilir."</p>
+    </div>
+    <div class="review-card">
+        <span class="review-user">@kerem_vlc</span>
+        <p class="review-text">"Hız ve kalite on numara. CPM için tek adresim burası artık."</p>
+    </div>
+</div>
+
+<footer style="text-align:center; padding:30px; font-size:0.7rem; color:#94a3b8; border-top:1px solid #e2e8f0; background:white;">
+    <p><strong>SEFA CPM MARKET</strong></p>
+    <p>Bir SefaAi projesidir. © 2026</p>
 </footer>
+
+<div class="floating-contact">
+    <a href="https://instagram.com/jakobss66" class="float-btn btn-insta"><i class="fab fa-instagram"></i></a>
+</div>
 
 <script>
     function filter(type) {
-        if(type === 'all') {
-            document.querySelectorAll('.card').forEach(c => c.style.display = 'block');
-        } else {
-            document.querySelectorAll('.card').forEach(c => {
+        document.querySelectorAll('.card').forEach(c => {
+            if(type === 'all') {
+                c.style.display = 'block';
+            } else {
                 c.style.display = c.classList.contains('cat-' + type) ? 'block' : 'none';
-            });
-        }
+            }
+        });
     }
 </script>
 
 </body>
-        </html>
-        
+    </html>
+    
